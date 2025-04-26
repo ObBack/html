@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #080213f6;
+}
+
+.loader { /* 加载动画 */
+  width: 50px;
+  height: 50px;
+  border: 5px solid #15032c;
+  border-top: 5px solid #6a44b1; /* 顶部颜色不同 */
+  border-radius: 50%;
+  animation: loading 1s linear infinite; /* 关键帧动画 */
+  margin: 20px auto;
+}
+
+@keyframes loading { /* 动画 */
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading_overlay { /* 遮罩层 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.title_div { /* 标题div */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #00000000;
+  overflow: hidden;
+}
+
+.title_text { /* 标题文本 */
+  position: absolute;
+  font-family: Impact, sans-serif;
+  font-size: 5rem;
+  color: #ddd0e2;
+  letter-spacing: 2rem;
+  user-select: none;
+  animation: shrink 1.0s ease-out forwards; /* 动画 */
+}
+
+@keyframes shrink { /* 标题淡入动画 */
+  from {
+    letter-spacing: 2rem; /* 初始值 */
+    opacity: 0;
+  }
+  to {
+    letter-spacing: 0.5rem; /* 目标值 */
+    opacity: 1;
+  }
+}
