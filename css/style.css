@@ -4,6 +4,12 @@ body {
   background-color: #080213f6;
 }
 
+@font-face {
+  font-family: 'HarmonyFont';
+  src: local('HarmonyOS_Sans_Condensed_Black'),
+       local('sans-serif');
+}
+
 .loader { /* 加载动画 */
   width: 50px;
   height: 50px;
@@ -14,12 +20,12 @@ body {
   margin: 20px auto;
 }
 
-@keyframes loading { /* 动画 */
+@keyframes loading { /* 加载动画 */
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-.loading_overlay { /* 遮罩层 */
+.loading_overlay { /* 加载遮罩层 */
   position: fixed;
   top: 0;
   left: 0;
@@ -37,28 +43,63 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 20vh;
   background-color: #00000000;
   overflow: hidden;
 }
 
 .title_text { /* 标题文本 */
-  position: absolute;
-  font-family: Impact, sans-serif;
-  font-size: 5rem;
-  color: #ddd0e2;
-  letter-spacing: 2rem;
-  user-select: none;
-  animation: shrink 1.0s ease-out forwards; /* 动画 */
+  position: absolute; /* 绝对定位 */
+  font-family: 'HarmonyFont', Arial, sans-serif; /* 字体 */
+  font-size: 3rem; /* 字体大小 */
+  font-weight: 700; /* 字体粗细 */
+  color: #ddd0e2; /* 字体颜色 */
+  letter-spacing: 0.5rem; /* 字间距 */
+  user-select: none; /* 禁止选中 */
+  white-space: nowrap; /* 禁止换行 */
+  overflow: hidden; /* 隐藏溢出内容 */
+  text-overflow: ellipsis; /* 溢出显示省略号 */
+  animation: shrink 0.7s ease-out forwards; /* 动画 */
 }
 
 @keyframes shrink { /* 标题淡入动画 */
-  from {
-    letter-spacing: 2rem; /* 初始值 */
-    opacity: 0;
+  0% {
+    letter-spacing: 0rem;
   }
-  to {
-    letter-spacing: 0.5rem; /* 目标值 */
+  40% {
+    letter-spacing: 0.8rem;
+  }
+  100% {
+    letter-spacing: 0.7rem;
+  }
+}
+
+.content_div { /* 内容div */
+  display: flex; /* 弹性布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  flex-direction: column; /* 方向为列 */
+  height: 30vh; /* 高度 */
+  background-color: #00000000; /* 背景透明 */
+  overflow: hidden; /* 隐藏溢出内容 */
+  animation: fade 0.5s ease-out forwards; /* 动画 */
+}
+
+@keyframes fade { /* 内容文本淡入动画 */
+  0% {
+    opacity: 0.3;
+  }
+  100% {
     opacity: 1;
   }
+}
+
+.content_text { /* 内容文本 */
+  font-family: 'HarmonyFont', Arial, sans-serif; /* 字体 */
+  font-size: 0.8rem; /* 字体大小 */
+  color: #ddd0e2; /* 字体颜色 */
+  font-weight: 400; /* 字体粗细 */
+  letter-spacing: 0.1rem; /* 字间距 */
+  overflow: hidden; /* 隐藏溢出内容 */
+  text-overflow: ellipsis; /* 溢出显示省略号 */
 }
