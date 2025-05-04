@@ -79,7 +79,6 @@ body {
   justify-content: center; /* 水平居中 */
   align-items: center; /* 垂直居中 */
   flex-direction: column; /* 方向为列 */
-  height: 30vh; /* 高度 */
   background-color: #00000000; /* 背景透明 */
   overflow: hidden; /* 隐藏溢出内容 */
   animation: fade 0.5s ease-out forwards; /* 动画 */
@@ -102,4 +101,11 @@ body {
   letter-spacing: 0.1rem; /* 字间距 */
   overflow: hidden; /* 隐藏溢出内容 */
   text-overflow: ellipsis; /* 溢出显示省略号 */
+}
+
+.line { /* 分割线 */
+  width: 95%;
+  height: 2px;
+  background-color: #a08bc770;
+  margin: 20px auto;
 }
